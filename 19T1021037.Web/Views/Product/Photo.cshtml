@@ -1,0 +1,87 @@
+﻿@model _19T1021037.DomainModels.ProductPhoto
+@{
+
+}
+
+<div class="box box-primary">
+    <div class="box-header with-border ">
+    </div>
+
+    <div class="box-body">
+        <form class="form-horizontal" action="~/Product/SavePhoto" method="post" enctype="multipart/form-data">
+
+            @Html.AntiForgeryToken()
+
+            @*@Html.HiddenFor(m => m.PhotoID)*@
+
+            <input type="hidden" name="PhotoID" value="@Model.PhotoID" />
+            <input type="hidden" name="ProductID" value="@Model.ProductID" />
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Ảnh:</label>
+                <div class="col-sm-10">
+                    @Html.HiddenFor(m => m.Photo)
+                    <input type="file" class="form-control" name="uploadPhoto"
+                           onchange="document.getElementById('photoPreview').src = window.URL.createObjectURL(this.files[0])" />
+                    @*<img id="photoPreview" style="width:100px; height:100px; border:hidden" src="~/Image/Product/@Model.Photo" />*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    @*<img src="~/Images/Products/Samsung_1.jpg" class="img img-bordered" style="width:150px" />*@
+                    <img src="~/Image/Product/@Model.Photo" id="photoPreview" class="img img-bordered" style="width:150px" />
+                </div>
+            </div>
+
+
+            @*<div class="form-group">
+            <div class="col-lg-offset-2 col-sm-10">
+                <img src="~/Image/Product/Samsung_1.jpg" class="img img-bordered" style="width:150px" />
+            </div>
+        </div>*@
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Mô tả:</label>
+                <div class="col-sm-10">
+                    @*<input type="text" class="form-control" name="Description" autofocus>*@
+                    @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Description, "", new { @style = "color:red;" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Thứ tự hiển thị:</label>
+                <div class="col-sm-10">
+                    @*<input type="number" class="form-control" name="DisplayOrder" autofocus>*@
+                    @Html.TextBoxFor(m => m.DisplayOrder, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.DisplayOrder, "", new { @style = "color:red;" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10 checkbox">
+                    <label> @Html.CheckBoxFor(m => m.IsHidden)Ẩn ảnh (không hiển thị với khách hàng)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-save"></i> Lưu dữ liệu
+                    </button>
+                    <a class="btn btn-warning" href="~/Product/Edit/@Model.ProductID">
+                        <i class="fa fa-ban"></i> Quay lại
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="box-footer text-center">
+    </div>
+
+</div>
+
+
+
+

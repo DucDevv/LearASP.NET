@@ -1,0 +1,63 @@
+﻿@model _19T1021037.DomainModels.Product
+@{
+    ViewBag.Title = "Xóa mặt hàng";
+}
+
+<div class="box box-primary">
+    <div class="box-header with-border ">
+    </div>
+
+    <div class="box-body">
+        <form class="form-horizontal" action="~/Product/Delete/@Model.ProductID" method="post">
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Ảnh:</label>
+                <div class="col-sm-10">
+                    @*<img src="~/Images/Products/samsung_NP900X4C.png" class="img img-bordered" style="width:200px" />*@
+                    <img id="photoPreview" style="width:100px; height:100px; border:hidden" src="~/Image/Product/@Model.Photo"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Tên mặt hàng:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">@Model.ProductName</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Đơn vị tính:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">@Model.Unit</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Giá hàng:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">@Model.Price</p>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                        Đồng ý xóa
+                    </button>
+                    <a href="~/Product" class="btn btn-warning" >
+                        <i class="fa fa-ban"></i> Quay lại
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="box-footer text-center">
+    </div>
+
+</div>
+
+
+

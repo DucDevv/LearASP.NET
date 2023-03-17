@@ -1,0 +1,87 @@
+﻿@model _19T1021037.DomainModels.Order
+@{
+    ViewBag.Title = "Xoá đơn hàng";
+}
+
+<h2>Delete</h2>
+<div class="box box-primary">
+    <div class="box-header with-border ">
+    </div>
+
+    <div class="box-body">
+        <form class="form-horizontal" action="~/Order/Delete/@Model.OrderID" method="post">
+            <div class="form-group">
+                <label class="control-label col-sm-2">Khách hàng</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">@Model.CustomerName</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Ngày lập</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">@Model.OrderTime</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Nhân viên phụ trách</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">@Model.EmployeeFullName</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Tên mặt hàng</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">@Model.AcceptTime</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Người giao hàng</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">@Model.ShipperName</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Ngày nhận giao hàng</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">@Model.ShippedTime</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Thời điểm kết thúc</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">@Model.FinishedTime</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Trạng thái</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">@Model.StatusDescription</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                        Đồng ý xóa
+                    </button>
+                    <a href="~/Order" class="btn btn-warning">
+                        <i class="fa fa-ban"></i> Quay lại
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="box-footer text-center">
+    </div>
+</div>
+
+
